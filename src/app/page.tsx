@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { TopicCards } from "@/components/TopicCards";
 import { GiftGrid } from "@/components/GiftGrid";
 import { SearchBox } from "@/components/SearchBox";
+import { TopicCards } from "@/components/TopicCards";
 import { AGE_GROUPS, SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/site";
 import { SAMPLE_GIFTS } from "@/lib/sample-gifts";
 
