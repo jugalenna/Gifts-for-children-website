@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AgeGroupCards } from "@/components/AgeGroupCards";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { GiftGrid } from "@/components/GiftGrid";
+import { TopicCards } from "@/components/TopicCards";
 import { AGE_GROUPS, getAgeGroup } from "@/lib/site";
 import { getGiftsForAge } from "@/lib/sample-gifts";
 
@@ -73,7 +73,7 @@ export default async function AgeGroupPage({ params }: PageProps<"/age/[slug]">)
           All age groups
         </h2>
         <div className="mt-6">
-          <AgeGroupCards currentSlug={group.slug} />
+          <TopicCards topics={AGE_GROUPS} basePath="/age" currentSlug={group.slug} />
         </div>
       </section>
     </div>

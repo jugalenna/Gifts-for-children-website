@@ -70,6 +70,61 @@ export function getAgeGroup(slug: string): AgeGroup | undefined {
   return AGE_GROUPS.find((group) => group.slug === slug);
 }
 
+export type Category = {
+  slug: string;
+  label: string;
+  title: string;
+  blurb: string;
+  intro: string;
+};
+
+export const CATEGORIES: Category[] = [
+  {
+    slug: "books",
+    label: "Books",
+    title: "Book gift ideas for kids",
+    blurb: "Stories to share and keep",
+    intro:
+      "A good book is a gift that lasts. From soft cloth books for babies to picture books, first readers and chapter books, there is a story to suit every age and interest.",
+  },
+  {
+    slug: "outdoor",
+    label: "Outdoor",
+    title: "Outdoor gift ideas for kids",
+    blurb: "Fresh air, play and adventure",
+    intro:
+      "Help them get outside and moving. Think garden and sand play, balls and bikes, bug-hunting kits and anything that turns the back garden or park into an adventure.",
+  },
+  {
+    slug: "creative",
+    label: "Creative",
+    title: "Creative gift ideas for kids",
+    blurb: "Art, crafts and pretend play",
+    intro:
+      "Give their imagination room to grow. Art and craft supplies, dress-up, puppets and music makers let children make something that is all their own.",
+  },
+  {
+    slug: "building",
+    label: "Building",
+    title: "Building toy gift ideas for kids",
+    blurb: "Blocks, bricks and big projects",
+    intro:
+      "Building toys grow with a child, from big soft blocks for babies to chunky bricks for toddlers and detailed sets for older kids. They build patience and problem-solving too.",
+  },
+  {
+    slug: "educational",
+    label: "Educational",
+    title: "Educational gift ideas for kids",
+    blurb: "Learning that feels like play",
+    intro:
+      "The best learning toys don't feel like homework. Puzzles, science kits, counting and letter games, and early coding toys make it fun to explore how the world works.",
+  },
+];
+
+export function getCategory(slug: string): Category | undefined {
+  return CATEGORIES.find((category) => category.slug === slug);
+}
+
 export const MAIN_NAV = [
   { href: "/age", label: "Browse by age" },
   { href: "/category", label: "Categories" },

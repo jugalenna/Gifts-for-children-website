@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { AgeGroupCards } from "@/components/AgeGroupCards";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { TopicCards } from "@/components/TopicCards";
+import { AGE_GROUPS } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Gift Ideas by Age (0-10 Years)",
@@ -24,7 +25,7 @@ export default function AgeIndexPage() {
         gift ideas that match what they enjoy right now.
       </p>
       <div className="mt-8">
-        <AgeGroupCards />
+        <TopicCards topics={AGE_GROUPS} basePath="/age" />
       </div>
     </div>
   );

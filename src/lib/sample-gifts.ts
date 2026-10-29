@@ -56,3 +56,7 @@ export const SAMPLE_GIFTS: Gift[] = [
 export function getGiftsForAge(ageSlug: string): Gift[] {
   return SAMPLE_GIFTS.filter((gift) => gift.ageRange === ageSlug);
 }
+
+export function getGiftsForCategory(categoryLabel: string): Gift[] {
+  return SAMPLE_GIFTS.filter((gift) => gift.category === categoryLabel);
+}

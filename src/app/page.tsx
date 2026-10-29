@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { AgeGroupCards } from "@/components/AgeGroupCards";
+import { TopicCards } from "@/components/TopicCards";
 import { GiftGrid } from "@/components/GiftGrid";
 import { SearchBox } from "@/components/SearchBox";
-import { SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/site";
+import { AGE_GROUPS, SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/site";
 import { SAMPLE_GIFTS } from "@/lib/sample-gifts";
 
 export const metadata: Metadata = {
@@ -50,7 +50,7 @@ export default function HomePage() {
         </h2>
         <p className="mt-2">Pick an age group to see gifts that suit them.</p>
         <div className="mt-6">
-          <AgeGroupCards />
+          <TopicCards topics={AGE_GROUPS} basePath="/age" />
         </div>
       </section>
 
