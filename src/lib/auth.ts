@@ -46,4 +46,5 @@ export const LOGIN_NOTICES: Record<string, string> = {
 // Messages shown on the account page.
 export const ACCOUNT_NOTICES: Record<string, string> = {
   "email-changed": "Your email address has been changed.",
+  "child-removed": "The child and their gift list have been removed.",
 };

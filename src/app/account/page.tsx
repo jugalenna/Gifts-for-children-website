@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { logOut } from "@/app/auth/actions";
 import { GiftGrid } from "@/components/GiftGrid";
 import { ACCOUNT_NOTICES } from "@/lib/auth";
+import { ageLabel, CHILD_FIELDS, childName, currentAge, MAX_CHILDREN, type Child } from "@/lib/children";
 import { getGiftsByIds } from "@/lib/sample-gifts";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
@@ -44,6 +45,12 @@ async function AccountDetails({ searchParams }: { searchParams: PageProps<"/acco
     .order("created_at", { ascending: false });
   const savedGifts = getGiftsByIds((favouriteRows ?? []).map((row) => row.gift_id as string));
 
+  const { data: childRows } = await supabase
+    .from("children")
+    .select(`${CHILD_FIELDS}, child_gifts(count)`)
+    .order("created_at");
+  const children = (childRows ?? []) as (Child & { child_gifts: { count: number }[] })[];
+
   return (
     <>
       {message && (
@@ -78,11 +85,43 @@ async function AccountDetails({ searchParams }: { searchParams: PageProps<"/acco
         )}
       </section>
 
-      <section aria-labelledby="lists-heading" className="mt-10 rounded-2xl bg-cloud p-6">
-        <h2 id="lists-heading" className="text-xl font-extrabold">
-          Gift lists for each child
+      <section aria-labelledby="lists-heading" className="mt-10">
+        <h2 id="lists-heading" className="text-2xl font-extrabold">
+          Gift lists
         </h2>
-        <p className="mt-2">Coming soon: keep a separate gift list for each child you shop for.</p>
+        <p className="mt-2">Keep a separate gift list for each child you shop for.</p>
+        <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {children.map((child) => {
+            const giftCount = child.child_gifts[0]?.count ?? 0;
+            return (
+              <li key={child.id}>
+                <Link
+                  href={`/account/children/${child.id}`}
+                  className="flex h-full flex-col rounded-2xl bg-cloud p-5 transition hover:-translate-y-0.5 hover:bg-peach-light"
+                >
+                  <span className="text-xl font-extrabold">{childName(child)}</span>
+                  <span className="mt-1 text-sm">{ageLabel(currentAge(child))}</span>
+                  <span className="mt-3 text-sm font-semibold">
+                    {giftCount === 1 ? "1 gift" : `${giftCount} gifts`} on the list
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+          {children.length < MAX_CHILDREN && (
+            <li>
+              <Link
+                href="/account/children/new"
+                className="flex h-full min-h-28 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-peach-dark p-5 text-center font-bold text-peach-dark hover:bg-cloud"
+              >
+                <span aria-hidden="true" className="text-3xl leading-none">
+                  +
+                </span>
+                Add a child
+              </Link>
+            </li>
+          )}
+        </ul>
       </section>
 
       <section aria-labelledby="settings-heading" className="mt-10">

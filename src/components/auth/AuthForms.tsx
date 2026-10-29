@@ -2,31 +2,16 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { startTransition, useActionState, type FormEvent } from "react";
 import { changeEmail, deleteAccount, logIn, requestPasswordReset, signUp, updatePassword } from "@/app/auth/actions";
 import { authLinkClass as linkClass } from "@/components/auth/AuthLayout";
-import { FormMessage, PasswordField, SubmitButton, TextField } from "@/components/auth/FormParts";
-import { LOGIN_NOTICES, PASSWORD_MIN_LENGTH, type FormState } from "@/lib/auth";
+import { FormMessage, PasswordField, SubmitButton, TextField, useFormAction } from "@/components/auth/FormParts";
+import { LOGIN_NOTICES, PASSWORD_MIN_LENGTH } from "@/lib/auth";
 
-const initialState: FormState = {};
 
-type ServerAction = (state: FormState, formData: FormData) => Promise<FormState>;
-
-// Submits the form to a server action without React's automatic form reset,
-// so what the visitor typed stays in place if there's a mistake to fix.
-function useAuthForm(serverAction: ServerAction) {
-  const [state, action, pending] = useActionState(serverAction, initialState);
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    startTransition(() => action(formData));
-  }
-  return { state, onSubmit, pending };
-}
 const passwordHint = `At least ${PASSWORD_MIN_LENGTH} characters. A few unrelated words together make a strong, easy-to-remember password.`;
 
 export function SignUpForm() {
-  const { state, onSubmit, pending } = useAuthForm(signUp);
+  const { state, onSubmit, pending } = useFormAction(signUp);
   if (state.success) return <FormMessage success={state.success} />;
 
   return (
@@ -54,7 +39,7 @@ export function SignUpForm() {
 }
 
 export function LoginForm() {
-  const { state, onSubmit, pending } = useAuthForm(logIn);
+  const { state, onSubmit, pending } = useFormAction(logIn);
   const searchParams = useSearchParams();
   const notice = LOGIN_NOTICES[searchParams.get("notice") ?? ""];
 
@@ -76,7 +61,7 @@ export function LoginForm() {
 }
 
 export function ForgotPasswordForm() {
-  const { state, onSubmit, pending } = useAuthForm(requestPasswordReset);
+  const { state, onSubmit, pending } = useFormAction(requestPasswordReset);
   if (state.success) return <FormMessage success={state.success} />;
 
   return (
@@ -89,7 +74,7 @@ export function ForgotPasswordForm() {
 }
 
 export function NewPasswordForm() {
-  const { state, onSubmit, pending } = useAuthForm(updatePassword);
+  const { state, onSubmit, pending } = useFormAction(updatePassword);
   if (state.success) {
     return (
       <div className="space-y-4">
@@ -112,7 +97,7 @@ export function NewPasswordForm() {
 }
 
 export function ChangeEmailForm() {
-  const { state, onSubmit, pending } = useAuthForm(changeEmail);
+  const { state, onSubmit, pending } = useFormAction(changeEmail);
   if (state.success) {
     return (
       <div className="space-y-4">
@@ -134,7 +119,7 @@ export function ChangeEmailForm() {
 }
 
 export function DeleteAccountForm() {
-  const { state, onSubmit, pending } = useAuthForm(deleteAccount);
+  const { state, onSubmit, pending } = useFormAction(deleteAccount);
 
   return (
     <form onSubmit={onSubmit} className="space-y-5">

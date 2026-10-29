@@ -1,4 +1,4 @@
-import { AGE_GROUPS, getCategory } from "@/lib/site";
+import { ageGroupForYears, getCategory } from "@/lib/site";
 import type { Gift } from "@/lib/sample-gifts";
 
 export type SearchQuery = {
@@ -24,15 +24,6 @@ const AGE_WORDS: Record<string, string> = {
   toddler: "1-2",
   toddlers: "1-2",
 };
-
-// A 1 year old fits "1-2" better than "0-1", so prefer the group that starts at that age.
-function ageGroupForYears(years: number): string | undefined {
-  const ranges = AGE_GROUPS.map((group) => ({ slug: group.slug, bounds: group.slug.split("-").map(Number) }));
-  const match =
-    ranges.find(({ bounds: [min] }) => min === years) ??
-    ranges.find(({ bounds: [min, max] }) => years >= min && years <= max);
-  return match?.slug;
-}
 
 // "books" and "book" should match each other.
 function stem(word: string): string {

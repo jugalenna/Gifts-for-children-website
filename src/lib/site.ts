@@ -71,6 +71,15 @@ export function getAgeGroup(slug: string): AgeGroup | undefined {
   return AGE_GROUPS.find((group) => group.slug === slug);
 }
 
+// A 1 year old fits "1-2" better than "0-1", so prefer the group that starts at that age.
+export function ageGroupForYears(years: number): string | undefined {
+  const ranges = AGE_GROUPS.map((group) => ({ slug: group.slug, bounds: group.slug.split("-").map(Number) }));
+  const match =
+    ranges.find(({ bounds: [min] }) => min === years) ??
+    ranges.find(({ bounds: [min, max] }) => years >= min && years <= max);
+  return match?.slug;
+}
+
 export type Category = {
   slug: string;
   label: string;

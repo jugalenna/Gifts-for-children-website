@@ -1,8 +1,23 @@
 "use client";
 
-import { useId, useState, type ReactNode } from "react";
+import { startTransition, useActionState, useId, useState, type FormEvent, type ReactNode } from "react";
+import type { FormState } from "@/lib/auth";
 
-const inputClass =
+type ServerAction = (state: FormState, formData: FormData) => Promise<FormState>;
+
+// Submits the form to a server action without React's automatic form reset,
+// so what the visitor typed stays in place if there's a mistake to fix.
+export function useFormAction(serverAction: ServerAction) {
+  const [state, action, pending] = useActionState(serverAction, {});
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    startTransition(() => action(formData));
+  }
+  return { state, onSubmit, pending };
+}
+
+export const inputClass =
   "w-full rounded-xl border-2 border-cloud bg-white px-4 py-3 text-base focus:border-peach-dark focus:outline-none";
 
 type FieldProps = {
@@ -11,9 +26,12 @@ type FieldProps = {
   type?: "email" | "text";
   autoComplete: string;
   hint?: string;
+  required?: boolean;
+  maxLength?: number;
+  defaultValue?: string;
 };
 
-export function TextField({ label, name, type = "text", autoComplete, hint }: FieldProps) {
+export function TextField({ label, name, type = "text", autoComplete, hint, required = true, maxLength, defaultValue }: FieldProps) {
   const id = useId();
   return (
     <div>
@@ -25,7 +43,9 @@ export function TextField({ label, name, type = "text", autoComplete, hint }: Fi
         name={name}
         type={type}
         autoComplete={autoComplete}
-        required
+        required={required}
+        maxLength={maxLength}
+        defaultValue={defaultValue}
         aria-describedby={hint ? `${id}-hint` : undefined}
         className={inputClass}
       />
@@ -38,7 +58,7 @@ export function TextField({ label, name, type = "text", autoComplete, hint }: Fi
   );
 }
 
-export function PasswordField({ label, name, autoComplete, hint }: Omit<FieldProps, "type">) {
+export function PasswordField({ label, name, autoComplete, hint }: Pick<FieldProps, "label" | "name" | "autoComplete" | "hint">) {
   const id = useId();
   const [visible, setVisible] = useState(false);
   return (

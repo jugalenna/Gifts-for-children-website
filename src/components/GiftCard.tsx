@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AddToListButton } from "@/components/AddToListButton";
 import { FavouriteButton } from "@/components/FavouriteButton";
 import { Price } from "@/components/Price";
 import type { Gift } from "@/lib/sample-gifts";
@@ -42,6 +43,7 @@ export function GiftCard({ gift }: { gift: Gift }) {
             View at {gift.retailer}
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
+          <AddToListButton giftId={gift.id} giftName={gift.name} />
         </div>
       </div>
     </article>
