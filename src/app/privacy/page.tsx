@@ -4,16 +4,10 @@ import { LegalPage, LegalSection, LegalSummary, legalLinkClass } from "@/compone
 import { CONTACT_EMAIL, SITE_NAME } from "@/lib/site";
 
 /*
- * DRAFT wording describing the site as it is today: no accounts, no
- * analytics, no cookies of our own. It must be updated BEFORE accounts,
- * analytics or the country/currency feature go live.
- *
- * Before launch a qualified person should check it for POPIA and GDPR
- * (CLAUDE.md "Legal to-do"), and the owner should add:
- * - the legal name and address of whoever runs the site (POPIA asks for the
- *   identity and contact details of the "responsible party");
- * - the hosting provider's name once chosen;
- * - confirmation of how long emails are kept.
+ * APPROVED wording (see CLAUDE.md "Legal to-do"). It describes the site
+ * without accounts: no accounts, no analytics, no cookies of our own.
+ * Before accounts, analytics or the country/currency feature go live it must
+ * be updated and approved again: set approved back to false until it is.
  */
 
 export const metadata: Metadata = {
@@ -30,7 +24,7 @@ export default function PrivacyPage() {
   );
 
   return (
-    <LegalPage title="Privacy policy" path="/privacy" breadcrumb="Privacy Policy" updated="29 October 2026">
+    <LegalPage title="Privacy policy" path="/privacy" breadcrumb="Privacy Policy" updated="29 October 2026" approved>
       <LegalSummary>
         <li>You can browse {SITE_NAME} without giving us any personal information.</li>
         <li>We don&apos;t sell anything, take payments or show adverts that track you.</li>
