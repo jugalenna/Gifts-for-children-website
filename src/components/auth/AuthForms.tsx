@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { startTransition, useActionState, type FormEvent } from "react";
-import { logIn, requestPasswordReset, signUp, updatePassword } from "@/app/auth/actions";
+import { changeEmail, deleteAccount, logIn, requestPasswordReset, signUp, updatePassword } from "@/app/auth/actions";
 import { authLinkClass as linkClass } from "@/components/auth/AuthLayout";
 import { FormMessage, PasswordField, SubmitButton, TextField } from "@/components/auth/FormParts";
 import { LOGIN_NOTICES, PASSWORD_MIN_LENGTH, type FormState } from "@/lib/auth";
@@ -107,6 +107,44 @@ export function NewPasswordForm() {
       <PasswordField label="New password" name="password" autoComplete="new-password" hint={passwordHint} />
       <PasswordField label="Type it again" name="confirm" autoComplete="new-password" />
       <SubmitButton pending={pending}>Save new password</SubmitButton>
+    </form>
+  );
+}
+
+export function ChangeEmailForm() {
+  const { state, onSubmit, pending } = useAuthForm(changeEmail);
+  if (state.success) {
+    return (
+      <div className="space-y-4">
+        <FormMessage success={state.success} />
+        <Link href="/account" className={linkClass}>
+          Back to my account
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={onSubmit} className="space-y-5">
+      <FormMessage error={state.error} />
+      <TextField label="New email address" name="email" type="email" autoComplete="email" />
+      <SubmitButton pending={pending}>Change my email</SubmitButton>
+    </form>
+  );
+}
+
+export function DeleteAccountForm() {
+  const { state, onSubmit, pending } = useAuthForm(deleteAccount);
+
+  return (
+    <form onSubmit={onSubmit} className="space-y-5">
+      <FormMessage error={state.error} />
+      <PasswordField label="Your password" name="password" autoComplete="current-password" hint="To keep your account safe, please enter your password." />
+      <label className="flex items-start gap-3">
+        <input type="checkbox" name="understand" required className="mt-1 h-5 w-5 shrink-0 accent-peach-dark" />
+        <span>I understand my account and everything saved in it will be deleted for good.</span>
+      </label>
+      <SubmitButton pending={pending}>Delete my account</SubmitButton>
     </form>
   );
 }

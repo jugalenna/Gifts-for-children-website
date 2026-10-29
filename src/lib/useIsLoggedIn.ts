@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
@@ -8,6 +9,7 @@ import { isSupabaseConfigured } from "@/lib/supabase/config";
 // pre-built. Only for display: account pages check on the server too.
 export function useIsLoggedIn(): boolean {
   const [loggedIn, setLoggedIn] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isSupabaseConfigured()) return;
@@ -16,6 +18,15 @@ export function useIsLoggedIn(): boolean {
     });
     return () => data.subscription.unsubscribe();
   }, []);
+
+  // Logging in, out or deleting the account happens on the server, so check
+  // the login cookies again after every page change.
+  useEffect(() => {
+    if (!isSupabaseConfigured()) return;
+    getSupabaseBrowserClient()
+      .auth.getSession()
+      .then(({ data }) => setLoggedIn(Boolean(data.session)));
+  }, [pathname]);
 
   return loggedIn;
 }

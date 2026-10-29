@@ -50,7 +50,7 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 - Login: email + password through Supabase Auth. Supabase stores passwords (hashed); we never see them.
 - Data region: Europe (EU West, Ireland). Supabase has no African region, so the Privacy Policy must say data is stored overseas.
 - Child's age: store the age (0-10) plus the date it was saved, and work out the current age from that. No birthday, surname or photo.
-- Tables: favourites, children, child_gifts, all protected by row level security so each account sees only its own rows. Schema in supabase/migrations/.
+- Tables: favourites, children, child_gifts, all protected by row level security so each account sees only its own rows. Schema in supabase/migrations/ (run each file once, in order, in the Supabase SQL Editor). 002 adds delete_my_account(), which deletes the caller's own account and all its data.
 - Packages: @supabase/supabase-js and @supabase/ssr (approved).
 - Emails (sign-up confirmation, password reset) need a separate email-sending service before launch; Supabase's built-in sender is for testing only. Service still to be chosen.
 - Build order: 1) Supabase project set up by the owner, 2) sign up / log in / log out / reset password, 3) Account page incl. delete account, 4) favourites, 5) child gift lists, 6) Privacy Policy update and legal review before accounts go public.

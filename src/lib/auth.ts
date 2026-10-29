@@ -40,6 +40,10 @@ export function friendlyAuthError(code: string | undefined): string {
 // Messages shown on the login page after following an email link.
 export const LOGIN_NOTICES: Record<string, string> = {
   "link-invalid": "That link has expired or was already used. Please log in, or ask for a new link.",
-  "password-updated": "Your password has been changed.",
   "logged-out": "You've been logged out.",
+};
+
+// Messages shown on the account page.
+export const ACCOUNT_NOTICES: Record<string, string> = {
+  "email-changed": "Your email address has been changed.",
 };
