@@ -1,4 +1,5 @@
 export const SITE_NAME = "Gift Ideas for Kids";
+export const CONTACT_EMAIL = "mirawendy@gmail.com";
 
 // Set NEXT_PUBLIC_SITE_URL to the live address (e.g. https://www.example.com) when the site goes online.
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
