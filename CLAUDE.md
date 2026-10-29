@@ -48,7 +48,7 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 
 ## Accounts plan (decided October 2026)
 - Login: email + password through Supabase Auth. Supabase stores passwords (hashed); we never see them.
-- Data region: Europe (Frankfurt). Supabase has no African region, so the Privacy Policy must say data is stored overseas.
+- Data region: Europe (EU West, Ireland). Supabase has no African region, so the Privacy Policy must say data is stored overseas.
 - Child's age: store the age (0-10) plus the date it was saved, and work out the current age from that. No birthday, surname or photo.
 - Tables: favourites, children, child_gifts, all protected by row level security so each account sees only its own rows. Schema in supabase/migrations/.
 - Packages: @supabase/supabase-js and @supabase/ssr (approved).
