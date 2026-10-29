@@ -8,8 +8,9 @@ import { CONTACT_EMAIL, SITE_NAME } from "@/lib/site";
  * "Legal to-do"), in particular the liability wording against South Africa's
  * Consumer Protection Act, and the owner should add:
  * - the legal name of whoever runs the site;
- * - which country's law applies (not stated here until confirmed);
- * - a section on accounts before accounts go live.
+ * - which country's law applies (not stated here until confirmed).
+ * The "Your account" section was added for accounts and goes to the same
+ * reviewer as the Privacy Policy's accounts changes.
  */
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function TermsPage() {
         <li>When you buy, you buy from the shop, and the shop&apos;s terms apply.</li>
         <li>Our ideas are suggestions. Always check age and safety details before you buy.</li>
         <li>Please use the site fairly and don&apos;t copy our content without asking.</li>
+        <li>Accounts are free and for adults only. You can delete yours at any time.</li>
       </LegalSummary>
 
       <LegalSection id="agreeing" title="Using this site">
@@ -79,6 +81,45 @@ export default function TermsPage() {
           aren&apos;t responsible for their content, products, or how they
           handle your information. Please read their terms and privacy
           policies.
+        </p>
+      </LegalSection>
+
+      <LegalSection id="account" title="Your account">
+        <p>
+          You don&apos;t need an account to use {SITE_NAME}. A free account
+          lets you save gift ideas and keep a gift list for each child you
+          shop for.
+        </p>
+        <ul>
+          <li>Accounts are only for adults (18 and over), one person per account.</li>
+          <li>Please use an email address you can access, and keep your password to yourself.</li>
+          <li>
+            If you think someone else has used your account, change your
+            password and let us know.
+          </li>
+        </ul>
+        <p>
+          <strong>Children on your lists:</strong> please only add what you
+          need to tell your lists apart, such as a first name, nickname or
+          initials, and an age. Don&apos;t add a child&apos;s surname,
+          photo, address or other details.
+        </p>
+        <p>
+          <strong>Your saved gifts:</strong> gift ideas can change or be
+          removed, for example when a shop stops selling a product. When that
+          happens, they may disappear from your saved gifts and lists.
+        </p>
+        <p>
+          <strong>Closing an account:</strong> you can delete your account at
+          any time from your Account page. This deletes everything saved in
+          it straight away and can&apos;t be undone. We may suspend or close
+          an account that breaks these terms or puts the site or other people
+          at risk. Where we can, we will email you first to explain why.
+        </p>
+        <p>
+          We may change or stop offering accounts in future. If we stop, we
+          will tell account holders by email in good time, so you can note
+          down anything you&apos;ve saved.
         </p>
       </LegalSection>
 
