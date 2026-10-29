@@ -22,7 +22,7 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 ## Features
 1. Gift listings with image, name, age range, category, and an "outbound" affiliate link button.
 2. Search and filters (age, category, price range).
-3. Accounts: visitors can sign up and log in. WHAT LOGIN UNLOCKS IS STILL TO BE DECIDED (see Open questions). Likely candidates: saved wishlists, saved favourites.
+3. Accounts: visitors can sign up and log in. Login unlocks saved wishlists/favourites and a gift list per child (see Open questions).
 4. Prices shown in the visitor's local currency, based on their country (detect country from the hosting provider's request headers; let the visitor change it manually).
 5. SEO-first: fast pages, clean URLs, titles/meta descriptions on every page, sitemap.xml, robots.txt, structured data, descriptive image alt text.
 
@@ -41,16 +41,31 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 
 ## Tech choices (proposed, to be confirmed)
 - Framework: Next.js (good for SEO), with TypeScript
-- Hosting: Vercel (free tier to start)
-- Accounts + database: Supabase (email login, wishlists table)
+- Hosting: Vercel. Decided October 2026: the free Hobby plan while the site is a private test with only SAMPLE links. Hobby is for non-commercial use only, so upgrade to Pro (about $20/month) BEFORE adding real affiliate links.
+- Accounts + database: Supabase (email login, wishlists table). CONFIRMED October 2026 (see "Accounts plan")
 - Styling: Tailwind CSS using the brand colours above
 - Analytics: Google Search Console + a privacy-friendly analytics tool
 
+## Accounts plan (decided October 2026)
+- Login: email + password through Supabase Auth. Supabase stores passwords (hashed); we never see them.
+- Data region: Europe (EU West, Ireland). Supabase has no African region, so the Privacy Policy must say data is stored overseas.
+- Child's age: store the age (0-10) plus the date it was saved, and work out the current age from that. No birthday, surname or photo.
+- Tables: favourites, children, child_gifts, all protected by row level security so each account sees only its own rows. Schema in supabase/migrations/ (run each file once, in order, in the Supabase SQL Editor). 002 adds delete_my_account(), which deletes the caller's own account and all its data.
+- Packages: @supabase/supabase-js and @supabase/ssr (approved).
+- Emails (sign-up confirmation, password reset) need a separate email-sending service before launch; Supabase's built-in sender is for testing only. Service still to be chosen.
+- Build order: 1) Supabase project set up by the owner, 2) sign up / log in / log out / reset password, 3) Account page incl. delete account, 4) favourites, 5) child gift lists, 6) Privacy Policy update and legal review before accounts go public.
+- The login cookie is strictly necessary; the Privacy Policy must mention it before launch.
+- Owner decision (October 2026): accounts stay switched on when the site goes online, before the Privacy Policy and Terms updates for accounts are approved.
+
 ## Open questions
-- What should logging in unlock? (wishlists? exclusive gift lists? something else?)
+- ~~What should logging in unlock?~~ DECIDED: logging in unlocks
+  1. Saved wishlists / favourites (save any gift to come back to later).
+  2. A gift list per child: the adult can add one list for each child they shop for, with an optional name and the child's age (0-10). Keep this minimal: no surname, birthday, photo or other details about the child.
 - Which affiliate programs will be used (e.g. in South Africa and other countries)?
 - Which countries/currencies first?
 - Will gift data be added by hand, by a spreadsheet, or by a product feed?
 
 ## Legal to-do (needs a qualified person to review)
-Privacy Policy (POPIA and, for overseas visitors, GDPR), Terms, Affiliate Disclosure, Cookie notice.
+Terms, Cookie notice.
+- Affiliate Disclosure: APPROVED (October 2026). Any change to its wording, such as listing the affiliate programmes, must be approved again before it goes live.
+- Privacy Policy (POPIA and, for overseas visitors, GDPR): APPROVED (October 2026) for the site WITHOUT accounts. It must be updated for accounts (login cookie, account data, children's nicknames/ages, data stored in the EU, deleting your account) and approved again before accounts go public.
