@@ -22,7 +22,7 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 ## Features
 1. Gift listings with image, name, age range, category, and an "outbound" affiliate link button.
 2. Search and filters (age, category, price range).
-3. Accounts: visitors can sign up and log in. WHAT LOGIN UNLOCKS IS STILL TO BE DECIDED (see Open questions). Likely candidates: saved wishlists, saved favourites.
+3. Accounts: visitors can sign up and log in. Login unlocks saved wishlists/favourites and a gift list per child (see Open questions).
 4. Prices shown in the visitor's local currency, based on their country (detect country from the hosting provider's request headers; let the visitor change it manually).
 5. SEO-first: fast pages, clean URLs, titles/meta descriptions on every page, sitemap.xml, robots.txt, structured data, descriptive image alt text.
 
@@ -47,7 +47,9 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 - Analytics: Google Search Console + a privacy-friendly analytics tool
 
 ## Open questions
-- What should logging in unlock? (wishlists? exclusive gift lists? something else?)
+- ~~What should logging in unlock?~~ DECIDED: logging in unlocks
+  1. Saved wishlists / favourites (save any gift to come back to later).
+  2. A gift list per child: the adult can add one list for each child they shop for, with an optional name and the child's age (0-10). Keep this minimal: no surname, birthday, photo or other details about the child.
 - Which affiliate programs will be used (e.g. in South Africa and other countries)?
 - Which countries/currencies first?
 - Will gift data be added by hand, by a spreadsheet, or by a product feed?

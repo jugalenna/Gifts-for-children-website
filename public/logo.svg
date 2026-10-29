@@ -1,0 +1,23 @@
+<svg viewBox="0 0 470 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gift Ideas for Kids logo">
+  <title>Gift Ideas for Kids</title>
+  <!-- soft background circle -->
+  <circle cx="82" cy="98" r="76" fill="#F3F3F3"/>
+  <!-- bow -->
+  <ellipse cx="58" cy="56" rx="22" ry="14" transform="rotate(-25 58 56)" fill="#F4906B"/>
+  <ellipse cx="106" cy="56" rx="22" ry="14" transform="rotate(25 106 56)" fill="#F4906B"/>
+  <!-- box body -->
+  <rect x="34" y="92" width="96" height="66" rx="10" fill="#FFB399"/>
+  <!-- lid -->
+  <rect x="26" y="70" width="112" height="28" rx="9" fill="#F4906B"/>
+  <!-- ribbon -->
+  <rect x="75" y="70" width="14" height="88" fill="#FFFFFF"/>
+  <circle cx="82" cy="62" r="10" fill="#FFFFFF"/>
+  <circle cx="82" cy="62" r="5" fill="#F4906B"/>
+  <!-- sparkles -->
+  <path d="M138 34 L141 42 L149 45 L141 48 L138 56 L135 48 L127 45 L135 42 Z" fill="#FFB399"/>
+  <path d="M24 40 L26 46 L32 48 L26 50 L24 56 L22 50 L16 48 L22 46 Z" fill="#C9C9C9"/>
+  <path d="M148 120 L150 125 L155 127 L150 129 L148 134 L146 129 L141 127 L146 125 Z" fill="#C9C9C9"/>
+  <!-- wordmark -->
+  <text x="178" y="98" font-family="'Nunito','Poppins','Trebuchet MS',Arial,sans-serif" font-size="46" font-weight="800" fill="#4A4A4A">Gift Ideas</text>
+  <text x="178" y="146" font-family="'Nunito','Poppins','Trebuchet MS',Arial,sans-serif" font-size="46" font-weight="800" fill="#F4906B">for Kids</text>
+</svg>

@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/*
+ * Brand colours (see CLAUDE.md).
+ * "peach-dark" is not a brand colour: it is a deeper peach used for text and
+ * buttons, because white text on #F4906B (or #F4906B text on white) does not
+ * have enough contrast to be easy to read.
+ */
+@theme {
+  --color-peach: #f4906b;
+  --color-peach-light: #ffb399;
+  --color-peach-dark: #b4502d;
+  --color-cloud: #f3f3f3;
+  --color-ink: #4a4a4a;
+
+  --font-sans: var(--font-nunito), "Nunito", "Poppins", sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-peach-dark);
+  outline-offset: 2px;
+}
