@@ -4,11 +4,9 @@ import { LegalPage, LegalSection, LegalSummary, legalLinkClass } from "@/compone
 import { SITE_NAME } from "@/lib/site";
 
 /*
- * DRAFT wording. Before launch a qualified person should check this page
- * (CLAUDE.md "Legal to-do"), and the owner should confirm:
- * - the "How we choose gifts" promises match how gifts are really chosen;
- * - the list of affiliate programmes, plus any wording a programme requires
- *   (some programmes insist on an exact sentence).
+ * APPROVED wording (see CLAUDE.md "Legal to-do"). Any change to this page,
+ * such as listing the affiliate programmes or adding wording a programme
+ * requires, needs approving again: set approved back to false until it is.
  */
 
 export const metadata: Metadata = {
@@ -23,7 +21,8 @@ export default function AffiliateDisclosurePage() {
       title="Affiliate disclosure"
       path="/affiliate-disclosure"
       breadcrumb="Affiliate Disclosure"
-      written="29 October 2026"
+      updated="29 October 2026"
+      approved
     >
       <LegalSummary>
         <li>We don&apos;t sell anything. We share gift ideas and link to shops that sell them.</li>

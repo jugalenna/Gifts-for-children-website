@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of use" path="/terms" breadcrumb="Terms" written="29 October 2026">
+    <LegalPage title="Terms of use" path="/terms" breadcrumb="Terms" updated="29 October 2026">
       <LegalSummary>
         <li>{SITE_NAME} shares gift ideas. We don&apos;t sell anything.</li>
         <li>When you buy, you buy from the shop, and the shop&apos;s terms apply.</li>

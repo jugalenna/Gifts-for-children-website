@@ -55,4 +55,5 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 - Will gift data be added by hand, by a spreadsheet, or by a product feed?
 
 ## Legal to-do (needs a qualified person to review)
-Privacy Policy (POPIA and, for overseas visitors, GDPR), Terms, Affiliate Disclosure, Cookie notice.
+Privacy Policy (POPIA and, for overseas visitors, GDPR), Terms, Cookie notice.
+- Affiliate Disclosure: APPROVED (October 2026). Any change to its wording, such as listing the affiliate programmes, must be approved again before it goes live.

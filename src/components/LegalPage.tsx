@@ -8,12 +8,13 @@ type LegalPageProps = {
   title: string;
   path: string;
   breadcrumb: string;
-  written: string; // date the draft was written, e.g. "29 October 2026"
+  updated: string; // date the wording last changed, e.g. "29 October 2026"
+  approved?: boolean; // true once a qualified person has reviewed the page
   children: ReactNode;
 };
 
 // Shared layout for the Privacy Policy, Terms and Affiliate Disclosure.
-export function LegalPage({ title, path, breadcrumb, written, children }: LegalPageProps) {
+export function LegalPage({ title, path, breadcrumb, updated, approved = false, children }: LegalPageProps) {
   return (
     <div className="mx-auto max-w-3xl px-4 pt-8">
       <Breadcrumbs
@@ -23,7 +24,7 @@ export function LegalPage({ title, path, breadcrumb, written, children }: LegalP
         ]}
       />
       <h1 className="mt-6 text-3xl font-extrabold sm:text-4xl">{title}</h1>
-      <DraftNotice written={written} />
+      {approved ? <p className="mt-3 text-sm">Last updated {updated}</p> : <DraftNotice written={updated} />}
       {children}
     </div>
   );

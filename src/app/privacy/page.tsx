@@ -30,7 +30,7 @@ export default function PrivacyPage() {
   );
 
   return (
-    <LegalPage title="Privacy policy" path="/privacy" breadcrumb="Privacy Policy" written="29 October 2026">
+    <LegalPage title="Privacy policy" path="/privacy" breadcrumb="Privacy Policy" updated="29 October 2026">
       <LegalSummary>
         <li>You can browse {SITE_NAME} without giving us any personal information.</li>
         <li>We don&apos;t sell anything, take payments or show adverts that track you.</li>
