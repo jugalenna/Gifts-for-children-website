@@ -41,7 +41,7 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 
 ## Tech choices (proposed, to be confirmed)
 - Framework: Next.js (good for SEO), with TypeScript
-- Hosting: Vercel (free tier to start)
+- Hosting: Vercel. Decided October 2026: the free Hobby plan while the site is a private test with only SAMPLE links. Hobby is for non-commercial use only, so upgrade to Pro (about $20/month) BEFORE adding real affiliate links.
 - Accounts + database: Supabase (email login, wishlists table). CONFIRMED October 2026 (see "Accounts plan")
 - Styling: Tailwind CSS using the brand colours above
 - Analytics: Google Search Console + a privacy-friendly analytics tool
@@ -55,6 +55,7 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 - Emails (sign-up confirmation, password reset) need a separate email-sending service before launch; Supabase's built-in sender is for testing only. Service still to be chosen.
 - Build order: 1) Supabase project set up by the owner, 2) sign up / log in / log out / reset password, 3) Account page incl. delete account, 4) favourites, 5) child gift lists, 6) Privacy Policy update and legal review before accounts go public.
 - The login cookie is strictly necessary; the Privacy Policy must mention it before launch.
+- Owner decision (October 2026): accounts stay switched on when the site goes online, before the Privacy Policy and Terms updates for accounts are approved.
 
 ## Open questions
 - ~~What should logging in unlock?~~ DECIDED: logging in unlocks
