@@ -52,3 +52,7 @@ export const SAMPLE_GIFTS: Gift[] = [
   sample("sample-7", "Science experiment kit", "A placeholder for safe, simple experiments to do at home.", "7-8", "Educational"),
   sample("sample-8", "Illustrated adventure book", "A placeholder for an exciting chapter book for confident readers.", "9-10", "Books"),
 ];
+
+export function getGiftsForAge(ageSlug: string): Gift[] {
+  return SAMPLE_GIFTS.filter((gift) => gift.ageRange === ageSlug);
+}

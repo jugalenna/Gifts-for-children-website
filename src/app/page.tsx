@@ -1,17 +1,22 @@
-import Link from "next/link";
-import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
-import { GiftCard } from "@/components/GiftCard";
+import type { Metadata } from "next";
+import { AgeGroupCards } from "@/components/AgeGroupCards";
+import { GiftGrid } from "@/components/GiftGrid";
 import { SearchBox } from "@/components/SearchBox";
-import { AGE_GROUPS, SITE_NAME } from "@/lib/site";
+import { SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/site";
 import { SAMPLE_GIFTS } from "@/lib/sample-gifts";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: SITE_NAME,
+  url: SITE_URL,
   potentialAction: {
     "@type": "SearchAction",
-    target: "/search?q={search_term_string}",
+    target: `${absoluteUrl("/search")}?q={search_term_string}`,
     "query-input": "required name=search_term_string",
   },
 };
@@ -44,19 +49,9 @@ export default function HomePage() {
           Shop by age
         </h2>
         <p className="mt-2">Pick an age group to see gifts that suit them.</p>
-        <ul className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {AGE_GROUPS.map((group) => (
-            <li key={group.slug}>
-              <Link
-                href={`/age/${group.slug}`}
-                className="flex h-full flex-col rounded-2xl bg-cloud p-4 transition hover:-translate-y-0.5 hover:bg-peach-light"
-              >
-                <span className="text-xl font-extrabold">{group.label}</span>
-                <span className="mt-1 text-sm">{group.blurb}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-6">
+          <AgeGroupCards />
+        </div>
       </section>
 
       <section aria-labelledby="popular-heading" className="mx-auto max-w-6xl px-4 pt-14">
@@ -68,15 +63,8 @@ export default function HomePage() {
           look. Real gift ideas are coming soon.
         </p>
         <div className="mt-4">
-          <AffiliateDisclosure />
+          <GiftGrid gifts={SAMPLE_GIFTS} />
         </div>
-        <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {SAMPLE_GIFTS.map((gift) => (
-            <li key={gift.id}>
-              <GiftCard gift={gift} />
-            </li>
-          ))}
-        </ul>
       </section>
     </>
   );
