@@ -3,12 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useAccount } from "@/components/AccountProvider";
 import { MAIN_NAV, SITE_NAME } from "@/lib/site";
-import { useIsLoggedIn } from "@/lib/useIsLoggedIn";
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const loggedIn = useIsLoggedIn();
+  const { loggedIn } = useAccount();
 
   return (
     <header className="sticky top-0 z-40 border-b border-cloud bg-white/95 backdrop-blur">

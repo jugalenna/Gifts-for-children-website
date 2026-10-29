@@ -60,3 +60,8 @@ export function getGiftsForAge(ageSlug: string): Gift[] {
 export function getGiftsForCategory(categoryLabel: string): Gift[] {
   return SAMPLE_GIFTS.filter((gift) => gift.category === categoryLabel);
 }
+
+// Gifts in the order given; ids no longer in the list are skipped.
+export function getGiftsByIds(ids: string[]): Gift[] {
+  return ids.flatMap((id) => SAMPLE_GIFTS.find((gift) => gift.id === id) ?? []);
+}

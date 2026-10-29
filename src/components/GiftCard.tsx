@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FavouriteButton } from "@/components/FavouriteButton";
 import { Price } from "@/components/Price";
 import type { Gift } from "@/lib/sample-gifts";
 
@@ -18,6 +19,7 @@ export function GiftCard({ gift }: { gift: Gift }) {
             SAMPLE
           </span>
         )}
+        <FavouriteButton giftId={gift.id} giftName={gift.name} />
       </div>
       <div className="flex flex-1 flex-col gap-2 p-4">
         <h3 className="text-lg font-bold leading-snug">
