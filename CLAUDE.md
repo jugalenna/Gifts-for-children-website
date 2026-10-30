@@ -1,5 +1,13 @@
 # Gift Ideas for Kids
 
+## New direction (decided October 2026) — read this first
+The affiliate route is paused: the networks checked don't accept the owner's situation (lives in South Africa, not a South African citizen, no SA ID), and most expect a blog with regular content, which the owner doesn't want to write. The site is being turned into three connected features that don't depend on affiliate programmes:
+1. **Gift-finder quiz** (front page): 3-4 questions (child's age, interests, budget) -> a short list of GENERAL gift ideas (e.g. "a balance bike", "a first chapter book series"), not branded products. Claude drafts the ideas; the owner reviews them. No shop links or prices on gift ideas.
+2. **Shareable birthday wishlists**: a parent shares one private link to a child's list; items are gift ideas or anything the parent types in (with any shop link they like). Guests tap "I'll buy this" WITHOUT an account (optional first name). Parents see that an item is taken, NOT who took it.
+3. **Global directory** of children's gift and party businesses (toy shops, venues, entertainers, cake makers) anywhere in the world: businesses submit a listing, the owner approves it, visitors filter by country and city. Paid listings come later; check what ID the payment provider needs first.
+Build order: quiz, then wishlists, then directory. The Privacy Policy and Terms need updating (and expert approval) for shared wishlists, guest reservations and business listings.
+The sections below describe the original affiliate plan. Its rules (disclosure, rel="sponsored", no invented products) still apply if affiliate links ever come back. The live site is gifts-for-children-website.vercel.app.
+
 ## What this site is
 An affiliate website of gift ideas for children aged 0-10. We do NOT sell anything and we do NOT process payments. Each gift card shows an image, name, short description, and a button that sends the visitor to the official retailer's page (via our affiliate link). If they buy there, we earn a commission.
 
@@ -62,7 +70,7 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
   1. Saved wishlists / favourites (save any gift to come back to later).
   2. A gift list per child: the adult can add one list for each child they shop for, with an optional name and the child's age (0-10). Keep this minimal: no surname, birthday, photo or other details about the child.
 - Which affiliate programs will be used (e.g. in South Africa and other countries)?
-- Which countries/currencies first?
+- ~~Which countries/currencies first?~~ DECIDED (October 2026): United States first (USD), then the United Kingdom (GBP), then South Africa (ZAR), which has few affiliate programmes.
 - Will gift data be added by hand, by a spreadsheet, or by a product feed?
 
 ## Legal to-do (needs a qualified person to review)

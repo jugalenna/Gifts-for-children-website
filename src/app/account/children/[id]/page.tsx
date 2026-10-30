@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { ChildForm } from "@/components/ChildForm";
 import { GiftGrid } from "@/components/GiftGrid";
 import { ageLabel, CHILD_FIELDS, childName, currentAge, type Child } from "@/lib/children";
-import { getGiftsByIds, getGiftsForAge } from "@/lib/sample-gifts";
+import { getGiftsByIds, getGiftsForAge } from "@/lib/gift-ideas";
 import { ageGroupForYears, getAgeGroup } from "@/lib/site";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { removeChild, updateChild } from "../actions";

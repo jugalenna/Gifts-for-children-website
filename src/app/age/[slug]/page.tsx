@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { GiftGrid } from "@/components/GiftGrid";
 import { TopicCards } from "@/components/TopicCards";
 import { AGE_GROUPS, getAgeGroup } from "@/lib/site";
-import { getGiftsForAge } from "@/lib/sample-gifts";
+import { getGiftsForAge } from "@/lib/gift-ideas";
 
 export function generateStaticParams() {
   return AGE_GROUPS.map((group) => ({ slug: group.slug }));
@@ -50,8 +50,7 @@ export default async function AgeGroupPage({ params }: PageProps<"/age/[slug]">)
         {gifts.length > 0 ? (
           <>
             <p className="mt-2">
-              These are <strong>SAMPLE</strong> gifts to show how the page
-              will look. Real gift ideas are coming soon.
+              Tap the heart to save an idea, or add it to a child&apos;s gift list.
             </p>
             <div className="mt-4">
               <GiftGrid gifts={gifts} />

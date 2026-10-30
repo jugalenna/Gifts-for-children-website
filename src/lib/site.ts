@@ -136,6 +136,7 @@ export function getCategory(slug: string): Category | undefined {
 }
 
 export const MAIN_NAV = [
+  { href: "/gift-finder", label: "Gift finder" },
   { href: "/age", label: "Browse by age" },
   { href: "/category", label: "Categories" },
   { href: "/about", label: "About" },

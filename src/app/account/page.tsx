@@ -6,7 +6,7 @@ import { logOut } from "@/app/auth/actions";
 import { GiftGrid } from "@/components/GiftGrid";
 import { ACCOUNT_NOTICES } from "@/lib/auth";
 import { ageLabel, CHILD_FIELDS, childName, currentAge, MAX_CHILDREN, type Child } from "@/lib/children";
-import { getGiftsByIds } from "@/lib/sample-gifts";
+import { getGiftsByIds } from "@/lib/gift-ideas";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
