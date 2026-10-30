@@ -6,7 +6,7 @@ import { AGE_GROUPS, CATEGORIES, absoluteUrl } from "@/lib/site";
  * built. Search results (/search) are left out on purpose because those pages
  * are marked noindex.
  */
-const PAGES = ["/", "/gift-finder", "/age", "/category", "/about", "/contact", "/privacy", "/terms"];
+const PAGES = ["/", "/gift-finder", "/age", "/category", "/directory", "/about", "/contact", "/privacy", "/terms"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [

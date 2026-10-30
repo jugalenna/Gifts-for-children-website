@@ -9,14 +9,15 @@ import { CONTACT_EMAIL, SITE_NAME } from "@/lib/site";
  * Consumer Protection Act, and the owner should add:
  * - the legal name of whoever runs the site;
  * - which country's law applies (not stated here until confirmed).
- * The "Your account" section was added for accounts, and "Shared gift
- * lists" (30 October 2026) for shareable wishlists. The affiliate wording
+ * The "Your account" section was added for accounts, "Shared gift lists"
+ * (30 October 2026) for shareable wishlists, and "Business listings" for the
+ * directory. The affiliate wording
  * was removed on 30 October 2026, when the site stopped using affiliate links.
  */
 
 export const metadata: Metadata = {
   title: "Terms of Use",
-  description: `The terms for using ${SITE_NAME}, including how our gift ideas, accounts and shared gift lists work.`,
+  description: `The terms for using ${SITE_NAME}, including how our gift ideas, accounts, shared gift lists and business directory work.`,
   alternates: { canonical: "/terms" },
 };
 
@@ -30,6 +31,7 @@ export default function TermsPage() {
         <li>Our ideas are suggestions. Always check age and safety details before you buy.</li>
         <li>Please use the site fairly and don&apos;t copy our content without asking.</li>
         <li>Accounts are free and for adults only. You can delete yours at any time.</li>
+        <li>Businesses can list themselves in our directory for free. We check listings, but we don&apos;t recommend any business.</li>
       </LegalSummary>
 
       <LegalSection id="agreeing" title="Using this site">
@@ -69,7 +71,8 @@ export default function TermsPage() {
       <LegalSection id="other-sites" title="Links to other websites">
         <p>
           Our site may link to other websites that we don&apos;t control,
-          including shop links that families add to their own gift lists. We
+          including shop links that families add to their own gift lists and
+          websites that businesses add to their listings. We
           don&apos;t check those links and aren&apos;t responsible for the
           websites&apos; content, products, or how they handle your
           information. Please read their terms and privacy policies.
@@ -144,6 +147,35 @@ export default function TermsPage() {
         </p>
       </LegalSection>
 
+      <LegalSection id="listings" title="Business listings">
+        <p>
+          Businesses that sell products or services suitable for children can
+          add a free listing to our directory using an account. By adding a
+          listing, you confirm that:
+        </p>
+        <ul>
+          <li>the business is real, and you are allowed to list it</li>
+          <li>the details are correct and you will keep them up to date</li>
+          <li>what you sell or offer is lawful and suitable for children</li>
+          <li>you are happy for the details you enter, including any email address and phone number, to be shown publicly</li>
+        </ul>
+        <p>
+          We check each listing before it appears and again after any change.
+          We may turn down or take down any listing at any time, for
+          example if it seems inaccurate, unsuitable or breaks these terms.
+          Where we can, we will add a note to explain why. Listings are free
+          for now. If we ever charge for listings, we will tell you first, and
+          we won&apos;t charge you unless you agree.
+        </p>
+        <p>
+          <strong>For visitors:</strong> a listing isn&apos;t a
+          recommendation. We don&apos;t check the products, services, prices
+          or safety of any business, and anything you buy or book is between
+          you and that business. Please make your own checks first, especially
+          for anything involving children, such as entertainers or venues.
+        </p>
+      </LegalSection>
+
       <LegalSection id="content" title="Our content">
         <p>
           The words, design and logo on {SITE_NAME} belong to us or the people
@@ -160,7 +192,7 @@ export default function TermsPage() {
           <li>try to break, overload or get unauthorised access to the site</li>
           <li>use automated tools to copy large parts of the site</li>
           <li>use the site for anything unlawful</li>
-          <li>add harmful, misleading or unlawful items or links to a gift list</li>
+          <li>add harmful, misleading or unlawful items or links to a gift list or business listing</li>
         </ul>
       </LegalSection>
 

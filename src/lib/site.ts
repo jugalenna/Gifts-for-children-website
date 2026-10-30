@@ -139,6 +139,7 @@ export const MAIN_NAV = [
   { href: "/gift-finder", label: "Gift finder" },
   { href: "/age", label: "Browse by age" },
   { href: "/category", label: "Categories" },
+  { href: "/directory", label: "Directory" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

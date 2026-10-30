@@ -51,6 +51,15 @@ async function AccountDetails({ searchParams }: { searchParams: PageProps<"/acco
     .order("created_at");
   const children = (childRows ?? []) as (Child & { child_gifts: { count: number }[] })[];
 
+  // Everyone can read approved listings, so count only this account's own.
+  const [{ count: listingCount }, { data: isAdmin }] = await Promise.all([
+    supabase.from("listings").select("id", { count: "exact", head: true }).eq("user_id", user.id),
+    supabase.rpc("is_site_admin"),
+  ]);
+  const { count: pendingCount } = isAdmin
+    ? await supabase.from("listings").select("id", { count: "exact", head: true }).eq("status", "pending")
+    : { count: 0 };
+
   return (
     <>
       {message && (
@@ -122,6 +131,29 @@ async function AccountDetails({ searchParams }: { searchParams: PageProps<"/acco
             </li>
           )}
         </ul>
+      </section>
+
+      <section aria-labelledby="business-heading" className="mt-10">
+        <h2 id="business-heading" className="text-2xl font-extrabold">
+          Business listings
+        </h2>
+        <p className="mt-2">
+          Run a business for children? List it for free in our{" "}
+          <Link href="/directory" className="font-semibold text-peach-dark underline underline-offset-4">
+            directory
+          </Link>
+          .
+        </p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          <Link href="/account/listings" className={outlineButton}>
+            {(listingCount ?? 0) > 0 ? `My listings (${listingCount})` : "List a business"}
+          </Link>
+          {isAdmin && (
+            <Link href="/account/review" className={outlineButton}>
+              Review listings{(pendingCount ?? 0) > 0 ? ` (${pendingCount} waiting)` : ""}
+            </Link>
+          )}
+        </div>
       </section>
 
       <section aria-labelledby="settings-heading" className="mt-10">
