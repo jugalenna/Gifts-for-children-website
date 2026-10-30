@@ -1,5 +1,11 @@
 # Gift Ideas for Kids
 
+## Status: ON HOLD (October 2026)
+The site is live (gifts-for-children-website.vercel.app) with SAMPLE gifts and working accounts, but the affiliate route is paused:
+- Affiliate networks checked so far don't accept the owner's situation (lives in South Africa, not a South African citizen, no SA ID; Awin only accepts certain regions).
+- Most affiliate programmes expect a blog-style site with regular content; the owner wants a gift-finder landing site, not a content site.
+The owner may repurpose the site into another income idea. Everything built (gift browsing, search, accounts, favourites, per-child lists, legal pages) can be reused.
+
 ## What this site is
 An affiliate website of gift ideas for children aged 0-10. We do NOT sell anything and we do NOT process payments. Each gift card shows an image, name, short description, and a button that sends the visitor to the official retailer's page (via our affiliate link). If they buy there, we earn a commission.
 
