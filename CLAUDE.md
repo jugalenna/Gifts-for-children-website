@@ -5,6 +5,7 @@ The affiliate route is paused: the networks checked don't accept the owner's sit
 1. **Gift-finder quiz** (front page): 3-4 questions (child's age, interests, budget) -> a short list of GENERAL gift ideas (e.g. "a balance bike", "a first chapter book series"), not branded products. Claude drafts the ideas; the owner reviews them. No shop links or prices on gift ideas.
 2. **Shareable birthday wishlists**: a parent shares one private link to a child's list; items are gift ideas or anything the parent types in (with any shop link they like). Guests tap "I'll buy this" WITHOUT an account (optional first name). Parents see that an item is taken, NOT who took it.
 3. **Global directory** of children's gift and party businesses (toy shops, venues, entertainers, cake makers) anywhere in the world: businesses submit a listing, the owner approves it, visitors filter by country and city. Paid listings come later; check what ID the payment provider needs first.
+Built so far: the quiz (October 2026) and shareable wishlists (October 2026; supabase/migrations/003_shared_wishlists.sql, private links at /list/<token>, guests reserve through database functions only, no guest names stored because parents never see who reserved, an undo code is kept in the guest's own browser).
 Build order: quiz, then wishlists, then directory. The Privacy Policy and Terms need updating (and expert approval) for shared wishlists, guest reservations and business listings.
 The sections below describe the original affiliate plan. Its rules (disclosure, rel="sponsored", no invented products) still apply if affiliate links ever come back. The live site is gifts-for-children-website.vercel.app.
 
@@ -58,7 +59,7 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 - Login: email + password through Supabase Auth. Supabase stores passwords (hashed); we never see them.
 - Data region: Europe (EU West, Ireland). Supabase has no African region, so the Privacy Policy must say data is stored overseas.
 - Child's age: store the age (0-10) plus the date it was saved, and work out the current age from that. No birthday, surname or photo.
-- Tables: favourites, children, child_gifts, all protected by row level security so each account sees only its own rows. Schema in supabase/migrations/ (run each file once, in order, in the Supabase SQL Editor). 002 adds delete_my_account(), which deletes the caller's own account and all its data.
+- Tables: favourites, children, child_gifts, all protected by row level security so each account sees only its own rows. Schema in supabase/migrations/ (run each file once, in order, in the Supabase SQL Editor). 002 adds delete_my_account(), which deletes the caller's own account and all its data. 003 adds sharing (children.share_token), custom_items and reservations.
 - Packages: @supabase/supabase-js and @supabase/ssr (approved).
 - Emails (sign-up confirmation, password reset) need a separate email-sending service before launch; Supabase's built-in sender is for testing only. Service still to be chosen.
 - Build order: 1) Supabase project set up by the owner, 2) sign up / log in / log out / reset password, 3) Account page incl. delete account, 4) favourites, 5) child gift lists, 6) Privacy Policy update and legal review before accounts go public.
