@@ -26,8 +26,8 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-white">
         <p className="mx-auto max-w-6xl px-4 py-4 text-xs">
-          As an affiliate, we may earn a commission when you buy through links
-          on this site, at no extra cost to you.
+          Gift Ideas for Kids is free to use. We don&apos;t sell anything or
+          take payments.
         </p>
       </div>
     </footer>

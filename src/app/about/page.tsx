@@ -11,16 +11,16 @@ export const metadata: Metadata = {
 
 const STEPS = [
   {
-    title: "Pick an age or a category",
-    text: "Start with the child's age, or with what they love, such as books, building or the outdoors.",
+    title: "Answer three quick questions",
+    text: "Tell us the child's age, what they love and how big a gift you have in mind. Or browse by age or category.",
   },
   {
     title: "Find an idea you like",
-    text: "Each gift shows the age it suits, its category and a short description to help you decide.",
+    text: "Each idea shows the ages it suits, its category, the size of gift and a short description.",
   },
   {
-    title: "Buy from the shop",
-    text: "Tap the button to visit the shop's website, where you can check the price and buy.",
+    title: "Save it for later",
+    text: "With a free account, save ideas you like and keep a gift list for each child you shop for.",
   },
 ];
 
@@ -71,17 +71,12 @@ export default function AboutPage() {
 
       <section aria-labelledby="money-heading" className="mt-12">
         <h2 id="money-heading" className="text-2xl font-extrabold">
-          How we keep the site free
+          Free to use
         </h2>
         <p className="mt-3 text-lg leading-relaxed">
-          We don&apos;t sell anything ourselves and we never take payments.
-          When you buy a gift through one of our links, the shop may pay us a
-          small commission, at no extra cost to you. You can read exactly how
-          this works in our{" "}
-          <Link href="/affiliate-disclosure" className="font-semibold text-peach-dark underline underline-offset-4">
-            affiliate disclosure
-          </Link>
-          .
+          {SITE_NAME} is free. We don&apos;t sell anything ourselves and we
+          never take payments. Our ideas are general suggestions, so you can
+          buy them from whichever shop suits you.
         </p>
       </section>
 
@@ -90,11 +85,11 @@ export default function AboutPage() {
           Coming soon
         </h2>
         <p className="mt-3 text-lg leading-relaxed">
-          We&apos;re working on free accounts for grown-ups, so you can:
+          We&apos;re working on two new things:
         </p>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-lg">
-          <li>save your favourite gift ideas to come back to later</li>
-          <li>keep a gift list for each child you shop for</li>
+          <li>birthday wishlists you can share with family, so nobody buys the same present twice</li>
+          <li>a directory of toy shops, party venues and other children&apos;s businesses near you</li>
         </ul>
       </section>
 
@@ -103,11 +98,11 @@ export default function AboutPage() {
           Ready to find a gift?
         </h2>
         <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row">
+          <Link href="/gift-finder" className={buttonClass}>
+            Try the gift finder
+          </Link>
           <Link href="/age" className={buttonClass}>
             Browse by age
-          </Link>
-          <Link href="/category" className={buttonClass}>
-            Browse by category
           </Link>
         </div>
         <p className="mt-5">

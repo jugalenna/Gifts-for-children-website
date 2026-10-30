@@ -1,5 +1,5 @@
 import { ageGroupForYears, getCategory } from "@/lib/site";
-import type { Gift } from "@/lib/sample-gifts";
+import type { GiftIdea } from "@/lib/gift-ideas";
 
 export type SearchQuery = {
   q: string;
@@ -36,11 +36,11 @@ function stem(word: string): string {
  * in the gift's name, description or category.
  */
 export type SearchResult = {
-  gifts: Gift[];
+  gifts: GiftIdea[];
   ageOutOfRange: boolean; // e.g. "12 year old": we only cover ages 0-10
 };
 
-export function searchGifts(gifts: Gift[], query: SearchQuery): SearchResult {
+export function searchGifts(gifts: GiftIdea[], query: SearchQuery): SearchResult {
   let ageSlug = query.age;
   let ageOutOfRange = false;
   const textWords: string[] = [];
@@ -63,7 +63,7 @@ export function searchGifts(gifts: Gift[], query: SearchQuery): SearchResult {
   if (ageOutOfRange && !ageSlug) return { gifts: [], ageOutOfRange };
 
   const matches = gifts.filter((gift) => {
-    if (ageSlug && gift.ageRange !== ageSlug) return false;
+    if (ageSlug && !gift.ageGroups.includes(ageSlug)) return false;
     if (categoryLabel && gift.category !== categoryLabel) return false;
 
     const giftWords = `${gift.name} ${gift.description} ${gift.category}`

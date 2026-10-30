@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { GiftGrid } from "@/components/GiftGrid";
 import { AGE_GROUPS, CATEGORIES, getAgeGroup, getCategory } from "@/lib/site";
-import { SAMPLE_GIFTS } from "@/lib/sample-gifts";
+import { GIFT_IDEAS } from "@/lib/gift-ideas";
 import { searchGifts, type SearchQuery } from "@/lib/search";
 
 // Search result pages change with every search, so search engines are asked
@@ -54,7 +54,7 @@ async function SearchResults({ searchParams }: { searchParams: SearchParams }) {
   const query = await readQuery(searchParams);
   const hasSearch = Boolean(query.q || query.age || query.category);
   const { gifts: results, ageOutOfRange } = hasSearch
-    ? searchGifts(SAMPLE_GIFTS, query)
+    ? searchGifts(GIFT_IDEAS, query)
     : { gifts: [], ageOutOfRange: false };
 
   return (
@@ -72,10 +72,6 @@ async function SearchResults({ searchParams }: { searchParams: SearchParams }) {
 
         {hasSearch && results.length > 0 && (
           <>
-            <p className="mt-2">
-              These are <strong>SAMPLE</strong> gifts to show how search will
-              work. Real gift ideas are coming soon.
-            </p>
             <div className="mt-4">
               <GiftGrid gifts={results} />
             </div>

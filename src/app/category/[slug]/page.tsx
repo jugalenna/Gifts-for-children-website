@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { GiftGrid } from "@/components/GiftGrid";
 import { TopicCards } from "@/components/TopicCards";
 import { AGE_GROUPS, CATEGORIES, getCategory } from "@/lib/site";
-import { getGiftsForCategory } from "@/lib/sample-gifts";
+import { getGiftsForCategory } from "@/lib/gift-ideas";
 
 export function generateStaticParams() {
   return CATEGORIES.map((category) => ({ slug: category.slug }));
@@ -50,8 +50,7 @@ export default async function CategoryPage({ params }: PageProps<"/category/[slu
         {gifts.length > 0 ? (
           <>
             <p className="mt-2">
-              These are <strong>SAMPLE</strong> gifts to show how the page
-              will look. Real gift ideas are coming soon.
+              Tap the heart to save an idea, or add it to a child&apos;s gift list.
             </p>
             <div className="mt-4">
               <GiftGrid gifts={gifts} />
@@ -79,7 +78,7 @@ export default async function CategoryPage({ params }: PageProps<"/category/[slu
 
       <section aria-labelledby="ages-heading" className="pt-14">
         <h2 id="ages-heading" className="text-2xl font-extrabold">
-          Shop by age
+          Ideas by age
         </h2>
         <div className="mt-6">
           <TopicCards topics={AGE_GROUPS} basePath="/age" />
