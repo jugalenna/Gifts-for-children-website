@@ -22,6 +22,19 @@ const structuredData = {
   },
 };
 
+const MORE_LINKS = [
+  {
+    href: "/account",
+    title: "Share a birthday wishlist",
+    text: "Make a free gift list for a child and send one private link to family. Guests tap “I'll buy this”, so nobody buys the same present twice.",
+  },
+  {
+    href: "/directory",
+    title: "Find shops and party help",
+    text: "Toy shops, party venues, entertainers, cake makers and classes for children, from around the world.",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -72,6 +85,25 @@ export default function HomePage() {
         <div className="mt-6">
           <GiftGrid gifts={featuredGifts()} />
         </div>
+      </section>
+
+      <section aria-labelledby="more-heading" className="mx-auto max-w-6xl px-4 pt-14">
+        <h2 id="more-heading" className="text-2xl font-extrabold sm:text-3xl">
+          More ways we can help
+        </h2>
+        <ul className="mt-6 grid gap-6 sm:grid-cols-2">
+          {MORE_LINKS.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="flex h-full flex-col rounded-2xl bg-cloud p-6 transition hover:-translate-y-0.5 hover:bg-peach-light"
+              >
+                <span className="text-xl font-extrabold">{item.title}</span>
+                <span className="mt-2">{item.text}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );

@@ -14,8 +14,8 @@ export default function DeleteAccountPage() {
       title="Delete your account"
       intro={
         <>
-          This deletes your account, your saved gifts and all your children&apos;s gift lists straight away. It
-          can&apos;t be undone.
+          This deletes your account, your saved gifts, all your children&apos;s gift lists and any business listings
+          straight away. It can&apos;t be undone.
         </>
       }
       footer={

@@ -11,7 +11,8 @@ import { CONTACT_EMAIL, SITE_NAME } from "@/lib/site";
  * The reviewer's open questions in that document were not answered. Still to
  * add: the owner's legal name and address. See CLAUDE.md "Legal to-do".
  * Updated the same day, also without review, for shared gift lists and guest
- * reservations ("Shared gift lists").
+ * reservations ("Shared gift lists"), and for the business directory
+ * ("Business listings").
  */
 
 export const metadata: Metadata = {
@@ -42,6 +43,7 @@ export default function PrivacyPage() {
           If you share a gift list, anyone with the link can see it. Guests who mark a gift don&apos;t give us
           their name or email, and nobody sees who marked what.
         </li>
+        <li>If you list a business in our directory, the details you enter are shown publicly once we approve them.</li>
         <li>Our site is for adults. Please don&apos;t send us personal details about children.</li>
       </LegalSummary>
 
@@ -80,6 +82,11 @@ export default function PrivacyPage() {
           record that you confirmed you are 18 or over and accepted our Terms,
           and the gifts, children and gift lists you save, including items and
           shop links you add yourself. See &ldquo;Your account&rdquo; below.
+        </p>
+        <p>
+          <strong>When you list a business:</strong> we keep the details you
+          enter in your listing and link it to your account. See
+          &ldquo;Business listings&rdquo; below.
         </p>
         <p>
           <strong>When you open a shared gift list:</strong> you don&apos;t
@@ -143,10 +150,30 @@ export default function PrivacyPage() {
         </p>
       </LegalSection>
 
+      <LegalSection id="listings" title="Business listings">
+        <p>
+          If you add a business to our directory, we keep what you enter: the
+          business name, type, description, country, city, and any website,
+          email address and phone number. Once we approve a listing, these
+          details are shown publicly in the directory, where anyone can see
+          them, and search engines may list them. If the email address or
+          phone number is your own, please only add it if you are happy for
+          it to be public. Your account&apos;s email address is never shown.
+        </p>
+        <p>
+          We check each listing before it goes live and after any change, and
+          we keep a record of whether it was approved and any note we send
+          you. You can change or remove your listing at any time from your
+          account. Removing it, or deleting your account, deletes it straight
+          away.
+        </p>
+      </LegalSection>
+
       <LegalSection id="use" title="How we use your information">
         <ul>
           <li>to run your account, and to keep the gifts, children and gift lists you save so you can come back to them</li>
           <li>to show a shared gift list to the people you send the link to, and to show which items are taken</li>
+          <li>to check business listings and show approved ones in our directory</li>
           <li>to reply to your messages and help with your questions</li>
           <li>to keep the site working, safe and secure</li>
           <li>to meet our legal obligations</li>
@@ -190,7 +217,7 @@ export default function PrivacyPage() {
       <LegalSection id="sharing" title="Who we share it with">
         <p>
           We only share personal information with services that help us run
-          the site: Supabase, which stores accounts and saved lists and sends
+          the site: Supabase, which stores accounts, saved lists and business listings and sends
           account emails (such as sign-up and password reset links); Vercel,
           which hosts the website; and our email provider, for messages you
           send us. They use it only to provide that service. We will also share
@@ -210,7 +237,8 @@ export default function PrivacyPage() {
           We keep your account information until you delete your account or
           ask us to. Deleting your account removes your email address, saved
           gifts, children and gift lists straight away, along with any shared
-          links and the records of which items guests have marked.
+          links, the records of which items guests have marked, and any
+          business listings.
         </p>
         <p>
           We keep emails only for as long as we need them to deal with your

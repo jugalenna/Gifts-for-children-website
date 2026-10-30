@@ -80,16 +80,25 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section aria-labelledby="coming-heading" className="mt-12">
-        <h2 id="coming-heading" className="text-2xl font-extrabold">
-          Coming soon
+      <section aria-labelledby="more-heading" className="mt-12">
+        <h2 id="more-heading" className="text-2xl font-extrabold">
+          Also on {SITE_NAME}
         </h2>
-        <p className="mt-3 text-lg leading-relaxed">
-          We&apos;re working on two new things:
-        </p>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-lg">
-          <li>birthday wishlists you can share with family, so nobody buys the same present twice</li>
-          <li>a directory of toy shops, party venues and other children&apos;s businesses near you</li>
+          <li>
+            birthday wishlists you can share with family, so nobody buys the same present twice (with a free{" "}
+            <Link href="/signup" className="font-semibold text-peach-dark underline underline-offset-4">
+              account
+            </Link>
+            )
+          </li>
+          <li>
+            a{" "}
+            <Link href="/directory" className="font-semibold text-peach-dark underline underline-offset-4">
+              directory
+            </Link>{" "}
+            of toy shops, party venues and other children&apos;s businesses around the world
+          </li>
         </ul>
       </section>
 
