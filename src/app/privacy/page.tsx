@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { LegalPage, LegalSection, LegalSummary, legalLinkClass } from "@/components/LegalPage";
 import { CONTACT_EMAIL, SITE_NAME } from "@/lib/site";
 
 /*
- * APPROVED wording (see CLAUDE.md "Legal to-do"). It describes the site
- * without accounts: no accounts, no analytics, no cookies of our own.
- * Before accounts, analytics or the country/currency feature go live it must
- * be updated and approved again: set approved back to false until it is.
+ * DRAFT (30 October 2026): the approved version (29 October 2026) described
+ * the site without accounts. This draft adds accounts, the login cookie,
+ * children on gift lists, storage in Ireland and the gift finder, following
+ * the reviewer's changes document, and drops the shop-link cookies (gift
+ * ideas no longer link to shops). Mark it approved again once the reviewer
+ * signs it off (CLAUDE.md "Legal to-do"). Still to add: the owner's legal
+ * name and address.
  */
 
 export const metadata: Metadata = {
@@ -24,12 +26,16 @@ export default function PrivacyPage() {
   );
 
   return (
-    <LegalPage title="Privacy policy" path="/privacy" breadcrumb="Privacy Policy" updated="29 October 2026" approved>
+    <LegalPage title="Privacy policy" path="/privacy" breadcrumb="Privacy Policy" updated="30 October 2026">
       <LegalSummary>
-        <li>You can browse {SITE_NAME} without giving us any personal information.</li>
+        <li>
+          You can browse {SITE_NAME} without giving us any personal information. If you create a free
+          account, we keep your email address and what you choose to save, and you can delete it all at any
+          time.
+        </li>
         <li>We don&apos;t sell anything, take payments or show adverts that track you.</li>
         <li>If you email us, we use your message only to reply to you.</li>
-        <li>Shops you visit through our links have their own privacy policies.</li>
+        <li>The gift finder doesn&apos;t save your answers.</li>
         <li>Our site is for adults. Please don&apos;t send us personal details about children.</li>
       </LegalSummary>
 
@@ -56,14 +62,49 @@ export default function PrivacyPage() {
           your name if you include it, and whatever you write in your message.
         </p>
         <p>
-          <strong>Accounts:</strong> we don&apos;t offer accounts yet. When we
-          do, we will update this policy before they go live to explain what
-          information they use.
+          <strong>When you use the gift finder:</strong> your answers (the
+          child&apos;s age group, what they love and the size of gift) appear
+          only in the page&apos;s address, so you can go back or share the
+          results. We don&apos;t save them, but like any page you visit, the
+          address may appear in our hosting company&apos;s technical records.
+        </p>
+        <p>
+          <strong>Accounts:</strong> if you create an account, we keep your
+          email address, your password (scrambled, so we never see it), a
+          record that you confirmed you are 18 or over and accepted our Terms,
+          and the gifts, children and gift lists you save. See &ldquo;Your
+          account&rdquo; below.
+        </p>
+      </LegalSection>
+
+      <LegalSection id="account" title="Your account">
+        <p>
+          Accounts are free and only for adults. When you sign up, you confirm
+          you are 18 or over and accept our Terms, and we keep a record of that
+          with the date.
+        </p>
+        <p>
+          Your account lets you save gifts and keep a gift list for each child
+          you shop for. For each child you can add an optional nickname and
+          their age. Each year we move the age up automatically, so we never
+          need their birthday.
+        </p>
+        <p>
+          Your account information is stored with Supabase, our database
+          provider, on servers in Ireland. Other people using the site
+          can&apos;t see what you have saved.
+        </p>
+        <p>
+          You can change your email address or password, remove a child or a
+          saved gift, or delete your whole account from your Account page at
+          any time. Deleting your account removes everything in it straight
+          away and can&apos;t be undone.
         </p>
       </LegalSection>
 
       <LegalSection id="use" title="How we use your information">
         <ul>
+          <li>to run your account, and to keep the gifts, children and gift lists you save so you can come back to them</li>
           <li>to reply to your messages and help with your questions</li>
           <li>to keep the site working, safe and secure</li>
           <li>to meet our legal obligations</li>
@@ -73,15 +114,12 @@ export default function PrivacyPage() {
 
       <LegalSection id="cookies" title="Cookies">
         <p>
-          Our site doesn&apos;t set its own cookies at the moment. When you
-          click a link to a shop, that shop or its affiliate network may set
-          cookies on its own website, for example to record that you came from
-          us. Those cookies are controlled by them, so please check their
-          privacy and cookie policies.{" "}
-          <Link href="/affiliate-disclosure" className={legalLinkClass}>
-            Read how affiliate links work
-          </Link>
-          .
+          We set one kind of cookie: a login cookie that keeps you logged in
+          after you sign in. It is only set when you log in, lasts up to 400
+          days, and is removed when you log out. It is strictly necessary for
+          accounts to work. While you sign up or reset your password, a second
+          short-lived cookie checks the email link came from your browser. We
+          don&apos;t use cookies for adverts or tracking.
         </p>
         <p>
           If we add cookies or visitor statistics in future, we will update
@@ -97,23 +135,38 @@ export default function PrivacyPage() {
           name, photo or address. If you think a child has sent us their
           details, contact us and we will delete them.
         </p>
+        <p>
+          If you keep a gift list for a child, we store only what you choose to
+          add: an optional nickname and their age. We never ask for a
+          child&apos;s surname, birthday, photo or address. You can remove a
+          child, and everything on their list, at any time.
+        </p>
       </LegalSection>
 
       <LegalSection id="sharing" title="Who we share it with">
         <p>
           We only share personal information with services that help us run
-          the site, such as our hosting and email providers, and only so they
-          can provide that service. We will also share it if the law requires
-          us to.
+          the site: Supabase, which stores accounts and saved lists and sends
+          account emails (such as sign-up and password reset links); Vercel,
+          which hosts the website; and our email provider, for messages you
+          send us. They use it only to provide that service. We will also share
+          it if the law requires us to.
         </p>
         <p>
-          Some of these providers may store information on servers outside
-          your country, including outside South Africa. Where this happens,
-          we rely on them to protect it in line with data protection law.
+          Account information is stored with Supabase on servers in Ireland, in
+          the European Union, which is outside South Africa. Some of our
+          providers may also handle information in other countries. Where this
+          happens, we rely on them to protect it in line with data protection
+          law.
         </p>
       </LegalSection>
 
       <LegalSection id="keep" title="How long we keep it">
+        <p>
+          We keep your account information until you delete your account or
+          ask us to. Deleting your account removes your email address, saved
+          gifts, children and gift lists straight away.
+        </p>
         <p>
           We keep emails only for as long as we need them to deal with your
           message, unless the law requires us to keep them for longer.
@@ -134,7 +187,10 @@ export default function PrivacyPage() {
           <li>complain to a data protection authority</li>
         </ul>
         <p>
-          To use any of these rights, email us at {email}. In South Africa,
+          To use any of these rights, email us at {email}. If you have an
+          account, you can also see and change what you&apos;ve saved on your
+          Account page, change your email address or password, and delete
+          your account and everything in it yourself. In South Africa,
           you can complain to the Information Regulator. Elsewhere, you can
           contact your local data protection authority.
         </p>
@@ -151,8 +207,8 @@ export default function PrivacyPage() {
       <LegalSection id="changes" title="Changes to this policy">
         <p>
           We will update this page when the way we handle personal
-          information changes, for example when we add accounts. The date at
-          the top of the page shows when it last changed.
+          information changes. The date at the top of the page shows when it
+          last changed.
         </p>
       </LegalSection>
     </LegalPage>

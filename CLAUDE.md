@@ -76,4 +76,4 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 ## Legal to-do (needs a qualified person to review)
 Terms, Cookie notice.
 - Affiliate Disclosure: APPROVED (October 2026). Any change to its wording, such as listing the affiliate programmes, must be approved again before it goes live.
-- Privacy Policy (POPIA and, for overseas visitors, GDPR): APPROVED (October 2026) for the site WITHOUT accounts. It must be updated for accounts (login cookie, account data, children's nicknames/ages, data stored in the EU, deleting your account) and approved again before accounts go public.
+- Privacy Policy (POPIA and, for overseas visitors, GDPR): approved 29 October 2026 for the site WITHOUT accounts. On 30 October 2026 the page was updated (as a DRAFT) for accounts, the login cookie, children on gift lists, storage in Ireland and the gift finder, following the reviewer's changes document. It needs the reviewer's approval again, and will need another update for shareable wishlists, guest reservations and the business directory.
