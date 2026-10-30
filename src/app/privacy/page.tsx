@@ -10,6 +10,8 @@ import { CONTACT_EMAIL, SITE_NAME } from "@/lib/site";
  * and drops the shop-link cookies (gift ideas no longer link to shops).
  * The reviewer's open questions in that document were not answered. Still to
  * add: the owner's legal name and address. See CLAUDE.md "Legal to-do".
+ * Updated the same day, also without review, for shared gift lists and guest
+ * reservations ("Shared gift lists").
  */
 
 export const metadata: Metadata = {
@@ -36,6 +38,10 @@ export default function PrivacyPage() {
         <li>We don&apos;t sell anything, take payments or show adverts that track you.</li>
         <li>If you email us, we use your message only to reply to you.</li>
         <li>The gift finder doesn&apos;t save your answers.</li>
+        <li>
+          If you share a gift list, anyone with the link can see it. Guests who mark a gift don&apos;t give us
+          their name or email, and nobody sees who marked what.
+        </li>
         <li>Our site is for adults. Please don&apos;t send us personal details about children.</li>
       </LegalSummary>
 
@@ -72,8 +78,14 @@ export default function PrivacyPage() {
           <strong>Accounts:</strong> if you create an account, we keep your
           email address, your password (scrambled, so we never see it), a
           record that you confirmed you are 18 or over and accepted our Terms,
-          and the gifts, children and gift lists you save. See &ldquo;Your
-          account&rdquo; below.
+          and the gifts, children and gift lists you save, including items and
+          shop links you add yourself. See &ldquo;Your account&rdquo; below.
+        </p>
+        <p>
+          <strong>When you open a shared gift list:</strong> you don&apos;t
+          need an account, and we don&apos;t ask for your name or email. If
+          you tap &ldquo;I&apos;ll buy this&rdquo;, we record only that the
+          item is taken. See &ldquo;Shared gift lists&rdquo; below.
         </p>
       </LegalSection>
 
@@ -92,7 +104,8 @@ export default function PrivacyPage() {
         <p>
           Your account information is stored with Supabase, our database
           provider, on servers in Ireland. Other people using the site
-          can&apos;t see what you have saved.
+          can&apos;t see what you have saved, unless you choose to share a
+          child&apos;s gift list (see below).
         </p>
         <p>
           You can change your email address or password, remove a child or a
@@ -102,9 +115,38 @@ export default function PrivacyPage() {
         </p>
       </LegalSection>
 
+      <LegalSection id="shared-lists" title="Shared gift lists">
+        <p>
+          You can choose to share a child&apos;s gift list through a private
+          link. Anyone with the link can see the child&apos;s nickname (if you
+          added one), their age and the items on the list, including your
+          notes and shop links. Your email address is never shown. Shared
+          lists are hidden from search engines, but anyone you send the link
+          to can pass it on, so only share it with people you trust. You can
+          make a new link or stop sharing at any time, and the old link stops
+          working straight away.
+        </p>
+        <p>
+          <strong>Guests:</strong> when a guest taps &ldquo;I&apos;ll buy
+          this&rdquo;, we store only which item is taken, the date, and a
+          random code. We don&apos;t store the guest&apos;s name or email,
+          so nobody, not even the family, can see who marked an item. The
+          random code is also saved in the guest&apos;s own browser (in its
+          local storage, not a cookie), so they can undo their choice later.
+          It isn&apos;t used for anything else, and the guest can clear it by
+          clearing their browser&apos;s site data.
+        </p>
+        <p>
+          The record that an item is taken is deleted when the guest undoes
+          it, when the family makes the item available again or removes the
+          child, or when the family deletes their account.
+        </p>
+      </LegalSection>
+
       <LegalSection id="use" title="How we use your information">
         <ul>
           <li>to run your account, and to keep the gifts, children and gift lists you save so you can come back to them</li>
+          <li>to show a shared gift list to the people you send the link to, and to show which items are taken</li>
           <li>to reply to your messages and help with your questions</li>
           <li>to keep the site working, safe and secure</li>
           <li>to meet our legal obligations</li>
@@ -119,7 +161,9 @@ export default function PrivacyPage() {
           days, and is removed when you log out. It is strictly necessary for
           accounts to work. While you sign up or reset your password, a second
           short-lived cookie checks the email link came from your browser. We
-          don&apos;t use cookies for adverts or tracking.
+          don&apos;t use cookies for adverts or tracking. If you mark a gift
+          on a shared list, your browser also keeps the undo code described
+          in &ldquo;Shared gift lists&rdquo;.
         </p>
         <p>
           If we add cookies or visitor statistics in future, we will update
@@ -165,7 +209,8 @@ export default function PrivacyPage() {
         <p>
           We keep your account information until you delete your account or
           ask us to. Deleting your account removes your email address, saved
-          gifts, children and gift lists straight away.
+          gifts, children and gift lists straight away, along with any shared
+          links and the records of which items guests have marked.
         </p>
         <p>
           We keep emails only for as long as we need them to deal with your

@@ -148,5 +148,4 @@ export const FOOTER_LINKS = [
   { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms" },
-  { href: "/affiliate-disclosure", label: "Affiliate Disclosure" },
 ];

@@ -13,7 +13,7 @@ type LegalPageProps = {
   children: ReactNode;
 };
 
-// Shared layout for the Privacy Policy, Terms and Affiliate Disclosure.
+// Shared layout for the Privacy Policy and Terms.
 export function LegalPage({ title, path, breadcrumb, updated, approved = false, children }: LegalPageProps) {
   return (
     <div className="mx-auto max-w-3xl px-4 pt-8">
