@@ -3,13 +3,13 @@ import { LegalPage, LegalSection, LegalSummary, legalLinkClass } from "@/compone
 import { CONTACT_EMAIL, SITE_NAME } from "@/lib/site";
 
 /*
- * DRAFT (30 October 2026): the approved version (29 October 2026) described
- * the site without accounts. This draft adds accounts, the login cookie,
- * children on gift lists, storage in Ireland and the gift finder, following
- * the reviewer's changes document, and drops the shop-link cookies (gift
- * ideas no longer link to shops). Mark it approved again once the reviewer
- * signs it off (CLAUDE.md "Legal to-do"). Still to add: the owner's legal
- * name and address.
+ * PUBLISHED 30 October 2026 by the owner's decision, without a second review.
+ * The reviewer approved the version without accounts (29 October 2026); this
+ * one adds accounts, the login cookie, children on gift lists, storage in
+ * Ireland and the gift finder, following the reviewer's changes document,
+ * and drops the shop-link cookies (gift ideas no longer link to shops).
+ * The reviewer's open questions in that document were not answered. Still to
+ * add: the owner's legal name and address. See CLAUDE.md "Legal to-do".
  */
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function PrivacyPage() {
   );
 
   return (
-    <LegalPage title="Privacy policy" path="/privacy" breadcrumb="Privacy Policy" updated="30 October 2026">
+    <LegalPage title="Privacy policy" path="/privacy" breadcrumb="Privacy Policy" updated="30 October 2026" approved>
       <LegalSummary>
         <li>
           You can browse {SITE_NAME} without giving us any personal information. If you create a free
