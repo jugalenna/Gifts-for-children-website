@@ -1,9 +1,11 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { AddToListButton } from "@/components/AddToListButton";
 import { FavouriteButton } from "@/components/FavouriteButton";
 import { ageRangeLabel, sizeLabel, type GiftIdea } from "@/lib/gift-ideas";
 
-export function GiftCard({ gift }: { gift: GiftIdea }) {
+// status: an optional note above the buttons, e.g. "Taken" on a shared wishlist.
+export function GiftCard({ gift, status }: { gift: GiftIdea; status?: ReactNode }) {
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-cloud">
       <div className="relative">
@@ -26,6 +28,7 @@ export function GiftCard({ gift }: { gift: GiftIdea }) {
         </p>
         <p className="text-sm">{gift.description}</p>
         <div className="mt-auto pt-2">
+          {status}
           <AddToListButton giftId={gift.id} giftName={gift.name} />
         </div>
       </div>
