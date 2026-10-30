@@ -6,7 +6,7 @@ The affiliate route is paused: the networks checked don't accept the owner's sit
 2. **Shareable birthday wishlists**: a parent shares one private link to a child's list; items are gift ideas or anything the parent types in (with any shop link they like). Guests tap "I'll buy this" WITHOUT an account (optional first name). Parents see that an item is taken, NOT who took it.
 3. **Global directory** of children's gift and party businesses (toy shops, venues, entertainers, cake makers) anywhere in the world: businesses submit a listing, the owner approves it, visitors filter by country and city. Paid listings come later; check what ID the payment provider needs first.
 Built so far: the quiz (October 2026) and shareable wishlists (October 2026; supabase/migrations/003_shared_wishlists.sql, private links at /list/<token>, guests reserve through database functions only, no guest names stored because parents never see who reserved, an undo code is kept in the guest's own browser).
-Build order: quiz, then wishlists, then directory. The Privacy Policy and Terms need updating (and expert approval) for shared wishlists, guest reservations and business listings.
+Build order: quiz, then wishlists, then directory. The Privacy Policy and Terms were updated for shared wishlists and guest reservations on 30 October 2026 (published without expert review, by the owner's decision); they need another update for business listings. The Affiliate Disclosure page was removed on 30 October 2026 (the site has no affiliate links); bring it back from git history if affiliate links return.
 The sections below describe the original affiliate plan. Its rules (disclosure, rel="sponsored", no invented products) still apply if affiliate links ever come back. The live site is gifts-for-children-website.vercel.app.
 
 ## What this site is
@@ -26,7 +26,7 @@ Adults (parents, grandparents, aunts/uncles, friends) shopping for children. The
 - Tone: warm, helpful, simple words
 
 ## Pages
-Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. books, outdoor, creative, building, educational), Gift detail/search results, About, Contact, Login/Sign up, Account, Privacy Policy, Terms, Affiliate Disclosure.
+Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. books, outdoor, creative, building, educational), Gift detail/search results, About, Contact, Login/Sign up, Account, Privacy Policy, Terms, Affiliate Disclosure (removed October 2026, see New direction).
 
 ## Features
 1. Gift listings with image, name, age range, category, and an "outbound" affiliate link button.
@@ -76,5 +76,5 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
 
 ## Legal to-do (needs a qualified person to review)
 Terms, Cookie notice.
-- Affiliate Disclosure: APPROVED (October 2026). Any change to its wording, such as listing the affiliate programmes, must be approved again before it goes live.
-- Privacy Policy (POPIA and, for overseas visitors, GDPR): approved 29 October 2026 for the site WITHOUT accounts. On 30 October 2026 the page was updated for accounts, the login cookie, children on gift lists, storage in Ireland and the gift finder, following the reviewer's changes document, and PUBLISHED without a second review by the owner's decision (the reviewer's open questions in that document, e.g. POPIA and children's nicknames/ages, were not answered). It will need another update for shareable wishlists, guest reservations and the business directory.
+- Affiliate Disclosure: APPROVED (October 2026), then REMOVED from the site on 30 October 2026 because there are no affiliate links. If it comes back, any change to the approved wording must be approved again before it goes live.
+- Privacy Policy (POPIA and, for overseas visitors, GDPR): approved 29 October 2026 for the site WITHOUT accounts. On 30 October 2026 the page was updated for accounts, the login cookie, children on gift lists, storage in Ireland and the gift finder, following the reviewer's changes document, and PUBLISHED without a second review by the owner's decision (the reviewer's open questions in that document, e.g. POPIA and children's nicknames/ages, were not answered). Updated again on 30 October 2026, also without review, for shared gift lists and guest reservations (the Terms got a matching "Shared gift lists" section and lost the SAMPLE/affiliate wording). It will need another update for the business directory.

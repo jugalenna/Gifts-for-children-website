@@ -63,11 +63,7 @@ export default function ContactPage() {
         <p className="mt-3 text-lg leading-relaxed">
           We don&apos;t sell anything ourselves, so we can&apos;t see or change
           orders. For questions about delivery, returns, refunds or a product,
-          please contact the shop you bought from. You can read more in our{" "}
-          <Link href="/affiliate-disclosure" className={linkClass}>
-            affiliate disclosure
-          </Link>
-          .
+          please contact the shop you bought from.
         </p>
       </section>
 
