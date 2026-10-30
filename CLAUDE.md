@@ -62,7 +62,7 @@ Home, Browse by age (0-1, 1-2, 3-4, 5-6, 7-8, 9-10), Browse by category (e.g. bo
   1. Saved wishlists / favourites (save any gift to come back to later).
   2. A gift list per child: the adult can add one list for each child they shop for, with an optional name and the child's age (0-10). Keep this minimal: no surname, birthday, photo or other details about the child.
 - Which affiliate programs will be used (e.g. in South Africa and other countries)?
-- ~~Which countries/currencies first?~~ DECIDED (October 2026): South Africa first (ZAR), then the United Kingdom (GBP).
+- ~~Which countries/currencies first?~~ DECIDED (October 2026): United States first (USD), then the United Kingdom (GBP), then South Africa (ZAR), which has few affiliate programmes.
 - Will gift data be added by hand, by a spreadsheet, or by a product feed?
 
 ## Legal to-do (needs a qualified person to review)
